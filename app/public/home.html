@@ -18,9 +18,9 @@
                 <p class="lead">Answer a few basic questions.</p>
                 <hr class="my-4">
                 <p>Find the friend your most compatable with.</p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">&#9776; Take the survey</a>
+                <a class="btn btn-primary btn-lg" href="/survey" role="button">&#9776; Take the survey</a>
                 </div>
-        <a href="">API Friends list</a> | <a href="">GitHub Repo</a>
+        <button id="friends-list">API Friends list</button> | <a href="">GitHub Repo</a>
         <div class="row">
             <div class="col-sm">
                             
@@ -42,5 +42,32 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+    
+    $("#friends-list").on("click", function(){
+      console.log("GET friends list")
+      $.ajax({url:"/api/friends", method: "GET"})
+        .then(function(data){
+          console.log(data)
+        })
+    })
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </script>
   </body>
 </html>
