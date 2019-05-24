@@ -172,43 +172,55 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
       
-      $("submit").on("click", function(event){
-        event.preventDefault();
-        //validation for the form.
-        var valid = true;
-
-        if ($("#name").vall() === "" || $("#photo").val() === "") {
-          valid = false;
-        }else if ($("#quest1").val() === "" ||$("#quest2").val() === "" || $("#quest3").val() === "" || $("#quest4").val() === "" || $("#quest5").val() === "" || $("#quest6").val() === "" || $("#quest7").val() === "" || $("#quest8").val() === "" || $("#quest9").val() === "" || $("#quest10").val() === "") {
-          valid = false;
+      $("#submit").on("click", function(){
+        function validateForm() {
+          var valid = true;
+          $(".form-control").each(function() {
+            if ($(this).val() === "") {
+              valid = false;
+            }
+          });
+          $(".form-group").each(function(){
+            if ($(this).val() === "") {
+              valid = false;
+            }
+          });
+          return valid;
         }
+       // event.preventDefault();
+        //validation for the form.
+        //var valid = true;
 
-        if (valid === true) {
-          var newUser = {
+        //if ($("#name").vall() === "" || $("#photo").val() === "") {
+         // valid = false;
+        //}else if ($("#quest1").val() === "" ||$("#quest2").val() === "" || $("#quest3").val() === "" || $("#quest4").val() === "" || $("#quest5").val() === "" || $("#quest6").val() === "" || $("#quest7").val() === "" || $("#quest8").val() === "" || $("#quest9").val() === "" || $("#quest10").val() === "") {
+         // valid = false;
+        //}
+
+        if (validateForm()) {
+          var userData = {
             name: $("#name").val().trim(),
             photo: $("#photo").val().trim(),
             scores: [
-              $("quest1").val(),
-              $("quest2").val(),
-              $("quest3").val(),
-              $("quest4").val(),
-              $("quest5").val(),
-              $("quest6").val(),
-              $("quest7").val(),
-              $("quest8").val(),
-              $("quest9").val(),
-              $("quest10").val(),
+              $("#quest1").val(),
+              $("#quest2").val(),
+              $("#quest3").val(),
+              $("#quest4").val(),
+              $("#quest5").val(),
+              $("#quest6").val(),
+              $("#quest7").val(),
+              $("#quest8").val(),
+              $("#quest9").val(),
+              $("#quest10").val(),
             ]
           };
 
           var currentURL = window.location.origin;
-          $.post(currentURL + "/api/friends",newUser,function(data){
-            $("#bestie").text(data.name);
-            $("#bestiePic").attr("src",data.photo);
-            $("#modal").modal("toggle");
+          $.post(currentURL + "/api/friends",userData,function(data){
+            
+            alert("working");
           });
-        } else {
-          alert("Must fill out all questions!");
+        
         }
       });
     </script> 
