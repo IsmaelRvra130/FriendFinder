@@ -20,10 +20,10 @@
                     <input id= "name" class="form-control" type="text" placeholder="Name (Required)"><br>
                   
                     <input id= "photo" class="form-control" type="text" placeholder="Link to photo (Required)"><br>
-
+                      <h2>On a scale of 1-5 with 1 being very unlikely and 5 being mostly unlikely, please choose </h2>
                     <div class ="form-group">
                       <label for = "quest1">I would rather fight alone or with a group?</label>
-                      <select class="form-control" id="quest1">
+                      <select class="chosen-select" id="quest1">
                         <option value="">Please choose</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -35,7 +35,7 @@
 
                     <div class ="form-group">
                       <label for = "quest2">I would rather fly then have superhuman strength.</label>
-                      <select class="form-control" id="quest2">
+                      <select class="chosen-select" id="quest2">
                         <option value="">Please choose</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -46,7 +46,7 @@
                     </div>
                     <div class ="form-group">
                       <label for = "quest3">I like to make things explode.</label>
-                      <select class="form-control" id="quest3">
+                      <select class="chosen-select" id="quest3">
                         <option value="">Please choose</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -57,7 +57,7 @@
                     </div>
                     <div class ="form-group">
                       <label for = "quest4">At times I cant control my anger.</label>
-                      <select class="form-control" id="quest4">
+                      <select class="chosen-select" id="quest4">
                         <option value="">Please choose</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -68,7 +68,7 @@
                     </div>
                     <div class ="form-group">
                       <label for = "quest5">I would rather have superhuman strength then be able to fly.</label>
-                      <select class="form-control" id="quest5">
+                      <select class="chosen-select" id="quest5">
                         <option value="">Please choose</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -79,7 +79,7 @@
                     </div>
                     <div class ="form-group">
                       <label for = "quest6">I would rather live by the beach.</label>
-                      <select class="form-control" id="quest6">
+                      <select class="chosen-select" id="quest6">
                         <option value="">Please choose</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -90,7 +90,7 @@
                     </div>
                     <div class ="form-group">
                       <label for = "quest7">I would rather live in the city!</label>
-                      <select class="form-control" id="quest7">
+                      <select class="chosen-select" id="quest7">
                         <option value="">Please choose</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -101,7 +101,7 @@
                     </div>
                     <div class ="form-group">
                       <label for = "quest8">I like the water more then the air.</label>
-                      <select class="form-control" id="quest8">
+                      <select class="chosen-select" id="quest8">
                         <option value="">Please choose</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -112,7 +112,7 @@
                     </div>
                     <div class ="form-group">
                       <label for = "quest9">I like to be the bad guy</label>
-                      <select class="form-control" id="quest9">
+                      <select class="chosen-select" id="quest9">
                         <option value="">Please choose</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -123,7 +123,7 @@
                     </div>
                     <div class ="form-group">
                       <label for = "quest10">I like complete chaos.</label>
-                      <select class="form-control" id="quest10">
+                      <select class="chosen-select" id="quest10">
                         <option value="">Please choose</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
@@ -132,13 +132,18 @@
                         <option value="5">5</option> 
                       </select>
                     </div>
-                      <button id="submit">submit</button>
+
+                    <!--Submit button to push user data into array-->
+                      <button type="submit" class= "btn btn-primary btn-lg btn-block" id="submit"><i class ="fa fa-check-circle" aria-hidden="true"></i>Submit</button>
                   </div>
                 </div>
+
+                  <!--Start of the modal-->
 
 
                 <div id="modal" class="modal fade" role="dialog">
                   <div class="modal-dialog">
+
                     <div class="modal-content">
                       <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -146,7 +151,7 @@
                       </div>
                       <div class="modal-body">
                         <h2 id="bestie"></h2>
-                        <img id="bestiePic" src="#">
+                        <img id="bestiePic" src="">
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -155,6 +160,8 @@
                   </div>
                 </div>
               </div>
+                <br>
+              <!--Footer with the links to friends api and github repo-->
               <footer>
                 <div class="container">
                   <a href="/api/friends">Discover superhero friends.</a>
@@ -171,7 +178,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
-      
+
+      //submit the user data and validating that the form is completely filled out.
       $("#submit").on("click", function(){
         function validateForm() {
           var valid = true;
@@ -180,24 +188,17 @@
               valid = false;
             }
           });
-          $(".form-group").each(function(){
+          $(".chosen-select").each(function(){
             if ($(this).val() === "") {
               valid = false;
             }
           });
           return valid;
         }
-       // event.preventDefault();
-        //validation for the form.
-        //var valid = true;
-
-        //if ($("#name").vall() === "" || $("#photo").val() === "") {
-         // valid = false;
-        //}else if ($("#quest1").val() === "" ||$("#quest2").val() === "" || $("#quest3").val() === "" || $("#quest4").val() === "" || $("#quest5").val() === "" || $("#quest6").val() === "" || $("#quest7").val() === "" || $("#quest8").val() === "" || $("#quest9").val() === "" || $("#quest10").val() === "") {
-         // valid = false;
-        //}
-
+      
+        // If valid this will generate a new user.
         if (validateForm()) {
+          //Create an object for the user data
           var userData = {
             name: $("#name").val().trim(),
             photo: $("#photo").val().trim(),
@@ -215,13 +216,24 @@
             ]
           };
 
+          //Grab the URL of the website
           var currentURL = window.location.origin;
+
+          //Ajax post data to friends API
           $.post(currentURL + "/api/friends",userData,function(data){
+            //Grab results from Ajax post so that best match is displayed.
+            $("#bestie").text(data.name);
+            $("#bestiePic").attr("src", data.photo);
+            //Show modal after filling out form.
+            $("#modal").modal("toggle");
             
-            alert("working");
           });
         
+        }else {
+          // If form not valid, an alert to fill out all the questions.
+          alert("Please answer all questions!");
         }
+        return false;
       });
     </script> 
   </body>
